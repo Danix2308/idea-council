@@ -14,7 +14,15 @@ Each response identifies versions reviewed. Reconcile stale responses before app
 
 ## Evidence ledger
 
-For each `S#`: title, author/organization, URL or authorized path, publication date when available, access date for live material, exact page/section/line locator, supported claim, and limitations. Distinguish source assertions from corroboration and inference. Inspect cited material; do not invent absent metadata.
+For each `S#`: title, author/organization, exact date/revision, URL or authorized path, access date for live material, actual reading depth, inspected body sections, supported claim, and limitations. Preserve printed page and PDF-viewer positions separately. Distinguish source assertions from corroboration and inference. Inspect cited material; do not invent absent metadata.
+
+For each substantive `C#`: paragraph/version, claim, quotation/paraphrase/inference status, source/version, checked passage and real locator, population/period/units/denominator, intended citation, limitations, and verification result. See [source-and-citation-audit.md](source-and-citation-audit.md).
+
+## Foundations and readiness records
+
+Record conceptual definitions, operational measures, and justified proxies/thresholds. For each consequential `A#`, record assumption, justification, evidence status, affected claims, consequence if false, and sensitivity check or missing evidence. Preserve the question-to-conclusion logical framework and source compatibility notes using [research-foundations.md](research-foundations.md).
+
+Map requirements and applicable feedback to document sections and checks. Record the readiness table from [completion-checks.md](completion-checks.md) for the exact final revision: result, evidence, and remaining action. Do not let agent agreement replace verification.
 
 ## Outline
 

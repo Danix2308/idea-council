@@ -1,6 +1,12 @@
-# Validation — Research Council v0.1
+# Validation — Research Council
 
 Date: October 21, 2026.
+
+## v0.2 research-quality additions
+
+Added general-purpose foundations, source/citation audit, and completion-check references; linked them from the entrypoint and relevant roles; expanded source, claim, assumption, and readiness record contracts. No course documents, private feedback, grades, or personal research records were copied. No ENC1102 files were modified.
+
+The skill-creator format validator, relative reference-link checks, and Git whitespace checks pass after these changes. The behavioral trial below tested v0.1; the new quality checks have been statically reviewed but have not received a new live research trial. These instruction changes do not create an automatic factual verifier.
 
 ## Static checks
 

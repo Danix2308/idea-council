@@ -2,7 +2,7 @@
 
 A Codex skill for developing research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
 
-## Research Council v0.1
+## Research Council v0.2
 
 The skill lives in [skills/research-council](skills/research-council/SKILL.md). It is an instruction-based workflow using the host's research tools and subagents, not a standalone app or background service. Both personas may use the same model. No additional provider or API key is required by the skill; normal host usage applies.
 
@@ -13,6 +13,8 @@ The skill lives in [skills/research-council](skills/research-council/SKILL.md). 
 5. Review the whole document and retain unresolved uncertainty.
 
 Before working, each role receives the brief, complete outline, relevant evidence, and current document. Outputs include a cited report, reviewed outline, source ledger, actual paragraph discussion records, and final review. Agreement is not proof of correctness.
+
+Research checks cover conceptual definitions and operational measures, consequential assumptions, exact source versions and reading depth, claim-level evidence, quotations and paraphrases, compatible cross-source synthesis, standalone readability, and readiness of the exact final artifact. Required checks are recorded as PASS, FAIL, UNVERIFIED, or justified N/A. The reusable guidance contains no personal course records or instructor feedback.
 
 ## Install and use
 
