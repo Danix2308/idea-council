@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Council"
+  short_description: "Build research through paragraph-level discussion"
+  default_prompt: "Use $research-council to understand my topic and sources, review a paragraph-by-paragraph outline, then draft every paragraph through Writer and Critic discussion."

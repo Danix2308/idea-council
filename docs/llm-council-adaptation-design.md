@@ -1,5 +1,7 @@
 # LLM Council adaptation: ideas strengthened through criticism
 
+> Historical application design. The current deliverable is the [Research Council skill](../skills/research-council/SKILL.md), which implements the later context-first, outline-first, paragraph-by-paragraph research workflow. The web application and runtime adapter proposed below have not been implemented and are not prerequisites for the skill.
+
 Design proposal, October 21, 2026. No implementation, installation, or runtime testing performed.
 
 ## Recommendation
