@@ -51,6 +51,23 @@ Then use `para draft`, `para critique`, `para revise`, and `para check` for each
 
 For evaluation runs, the optional `baseline enable`, `baseline prompts`, `baseline record-draft`, and `baseline record-verdict` commands perform a blinded comparison with a one-pass draft. It is off by default, requires disclosure of the extra call cost, and reports when the baseline scores higher. See [baseline-check.md](skills/research-council/references/baseline-check.md).
 
+## Watch the debate live
+
+`scripts/council_live.py` is a read-only viewer for a run. Start it in the project folder before or during a run; it waits for `.council/` to appear and follows new runs.
+
+```text
+python skills/research-council/scripts/council_live.py serve --open     # browser tab at http://127.0.0.1:8765/
+python skills/research-council/scripts/council_live.py watch            # terminal (CMD/PowerShell) feed
+```
+
+Each recorded artifact appears the moment the coordinator records it: Writer messages on the left, Critic messages on the right, and a "Critic is critiquing P3 · 00:42" bar showing whose turn it is and for how long. Filter by paragraph with the chips; blind baseline content stays hidden unless `--show-blind` is passed.
+
+- `--host` also tails this project's Codex and Claude Code session transcripts, so you can see each subagent's tool calls, searches, and messages between recorded steps. It only follows sessions whose working folder is this project unless `--host-any` is given.
+- `council_live.py say --role critic --working --text "Reading S3 section 4"` posts a live note and restarts that role's timer; the coordinator can call it when dispatching a role.
+- `watch --compact` shows the first six lines of each message; `watch --once` prints the transcript so far and exits.
+
+Hosts do not expose a subagent's tokens while it is still generating, so the viewer updates per recorded step, note, or transcript line rather than token by token.
+
 Run the stdlib test suite from the repository root:
 
 ```text

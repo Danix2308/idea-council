@@ -11,6 +11,8 @@ Develop research through evidence-based discussion. Understand the context and r
 
 Set `COUNCIL` to `python <this skill's folder>/scripts/council_state.py` (`${CLAUDE_SKILL_DIR}/scripts/council_state.py` on Claude Code; use `python` on Windows when `python3` is unavailable). The coordinator must record every outline, review, draft, critique, revision, check, and final review through this tool, and drive the run with `COUNCIL next`. A `REFUSED:` result means fix the process; never work around the tool. It enforces the recorded workflow but does not verify research truth.
 
+At the start of a run, tell the user they can watch the debate live with `python <this skill's folder>/scripts/council_live.py serve --open` (browser) or `... watch` (terminal). When dispatching a role, optionally post `council_live.py say --role writer|critic --working --text "<task>"` so the viewer shows who is working; notes are progress markers, not records.
+
 ## Roles and records
 
 Use the host's delegation mechanism for a Writer and a Critic in separate contexts, coordinated by the primary agent. Both may use the same model; use configured models unless the user requests otherwise. This skill authorizes delegation for this research task, not unrelated work or external messages. Read [roles.md](references/roles.md) before delegating.
