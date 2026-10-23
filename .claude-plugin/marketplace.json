@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "idea-council",
+  "owner": {
+    "name": "Daniel (Danix2308)",
+    "url": "https://github.com/Danix2308"
+  },
+  "plugins": [
+    {
+      "name": "idea-council",
+      "source": "./",
+      "category": "productivity",
+      "description": "Evidence-based research drafting with a state-enforced Writer-Critic workflow.",
+      "version": "0.3.0"
+    }
+  ]
+}

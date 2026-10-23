@@ -1,0 +1,13 @@
+{
+  "name": "idea-council",
+  "version": "0.3.0",
+  "description": "Evidence-based research drafting with a state-enforced Writer-Critic workflow.",
+  "author": {
+    "name": "Daniel (Danix2308)",
+    "url": "https://github.com/Danix2308"
+  },
+  "homepage": "https://github.com/Danix2308/idea-council",
+  "repository": "https://github.com/Danix2308/idea-council",
+  "license": "MIT",
+  "keywords": ["research", "writing", "review", "evidence", "workflow"]
+}

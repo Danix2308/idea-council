@@ -7,6 +7,10 @@ description: Research and write documents through context gathering, a reviewed 
 
 Develop research through evidence-based discussion. Understand the context and review the complete paragraph plan before writing body prose. A broad topic is sufficient; do not force a binary question or assume a preferred conclusion.
 
+## State tool
+
+Set `COUNCIL` to `python <this skill's folder>/scripts/council_state.py` (`${CLAUDE_SKILL_DIR}/scripts/council_state.py` on Claude Code; use `python` on Windows when `python3` is unavailable). The coordinator must record every outline, review, draft, critique, revision, check, and final review through this tool, and drive the run with `COUNCIL next`. A `REFUSED:` result means fix the process; never work around the tool. It enforces the recorded workflow but does not verify research truth.
+
 ## Roles and records
 
 Use the host's delegation mechanism for a Writer and a Critic in separate contexts, coordinated by the primary agent. Both may use the same model; use configured models unless the user requests otherwise. This skill authorizes delegation for this research task, not unrelated work or external messages. Read [roles.md](references/roles.md) before delegating.
@@ -25,6 +29,8 @@ Research with available authorized tools. Prefer primary sources and inspect act
 
 Create a versioned brief and evidence ledger. Both roles read this context before planning. Do not draft body paragraphs yet.
 
+Record the context with `COUNCIL init --brief-file <brief>` and `COUNCIL ledger --file <ledger>`.
+
 Record consequential assumptions and distinguish conceptual definitions from operational measures. Label actual source-reading depth, preserve exact source versions, and check the body-level evidence required by each claim. The paragraph plan must not rely on uninspected details or unexplained proxies.
 
 ## 2. Discuss the entire paragraph outline
@@ -34,6 +40,8 @@ Writer proposes a full outline with stable paragraph IDs. Each entry specifies p
 Critic reviews the complete plan for framing, missing context, evidence coverage, alternative explanations, ordering, duplication, and whether the conclusion would follow. Writer revises and responds to every material objection. Preserve the actual exchange and dispositions.
 
 Begin drafting only once both roles have reviewed the current outline and material structural blockers have been addressed. After a Writer revision, obtain the Critic's explicit readiness confirmation naming that exact outline version before sending any body-drafting task. A conditional approval of an earlier version is insufficient. Keep outline revision and the first paragraph in separate requests; if a role returns prose prematurely, exclude it from the document and request a fresh draft after the gate passes. Resolve evidence gaps by researching, narrowing or omitting claims, or planning an explicitly uncertain paragraph; do not silently promote gaps into facts. This internal readiness check does not require additional user approval unless the user requested it. Respect outline-only requests.
+
+Record the plan through `COUNCIL outline propose --file <outline>` and its exact-version clearance through `COUNCIL outline review --version O<n> --verdict ready --file <review>`.
 
 ## 3. Develop every paragraph through discussion
 
@@ -50,6 +58,8 @@ Retain versions and actual exchanges. Default to one draft/critique/revision/che
 
 If new findings change structure, pause affected drafting, revise and re-review the outline, increment its version, and flag dependent paragraphs for rechecking. Read context again after version changes and resumptions; do not apply stale responses silently.
 
+Record each cycle with `COUNCIL para draft`, `para critique`, `para revise`, and `para check`; use `COUNCIL next` for the required order.
+
 ## 4. Review the whole document
 
 Both roles review the complete text and evidence trail for contradictions, omissions, repetition, inconsistent definitions, unsupported synthesis, and conclusions exceeding the findings. Substantive final edits, including transitions and conclusions, return through Writer/Critic review. Recheck affected neighboring/dependent paragraphs. Do not append unreviewed prose during final assembly.
@@ -57,6 +67,12 @@ Both roles review the complete text and evidence trail for contradictions, omiss
 Audit quotation and paraphrase separately, check the compatibility of synthesized sources, and read the document without relying on chat context. Complete the readiness table against the exact final revision, including its rendered export when applicable. Report required FAIL/UNVERIFIED checks as remaining work, not readiness.
 
 Deliver a readable report with citations and material limitations, plus accessible outline, evidence ledger, paragraph discussion records, and whole-document review. State actual execution mode and incomplete coverage. Success means evidence support and coherence, not consensus or eloquence. Uncertainty can remain in a completed report if disclosed; missing required review means partial.
+
+Record the assembled whole document through `COUNCIL final document --file <document>`, then record both whole-document reviews through `COUNCIL final review`; substantive changes through `COUNCIL final edit` require a new final document and reviews. Record the readiness table through `COUNCIL readiness set` before `COUNCIL complete`.
+
+## Optional blind baseline check
+
+After whole-document review, when the user requests evaluation and has been told the additional cost, use `COUNCIL baseline enable` and follow [baseline-check.md](references/baseline-check.md). It compares the document to a blinded one-pass draft and reports either result plainly; one same-model-family comparison is not a benchmark.
 
 ## Budgets and interruption
 

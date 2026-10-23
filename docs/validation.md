@@ -1,6 +1,12 @@
 # Validation — Research Council
 
-Date: October 21, 2026.
+Date: October 23, 2026.
+
+## v0.3 state enforcement
+
+Added a standard-library state tool that records artifacts and mechanically gates exact-version outline readiness, paragraph cycles, whole-document review, readiness, and completion. Added an optional blinded one-pass baseline comparison, a CLI-driven unit-test suite, MIT licensing, and Claude Code plugin packaging.
+
+The unit-test suite contains 20 tests; 20 passed in the implementation verification for this release. The bundled `quick_validate.py` passes. No new live research trial was run with the state tool, and the baseline check has not yet been run on a real task. The state tool enforces process order; it does not establish research quality or factual truth.
 
 ## v0.2 research-quality additions
 

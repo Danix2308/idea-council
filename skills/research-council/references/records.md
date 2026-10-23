@@ -1,6 +1,10 @@
 # Research records
 
-Use Markdown or structured data; these contracts do not require a database or fixed filenames. Preserve stable IDs and version references.
+Use Markdown or structured data; these contracts do not require a database or fixed filenames outside the state tool. When `council_state.py` is used, it copies records into the run directory with its versioned names and stores paths, hashes, and timestamps in `council.json`. Preserve stable IDs and version references.
+
+## State-tool record locations
+
+The run lives at `.council/<run-id>/`. The state JSON holds metadata, never artifact contents. Briefs are `brief/B<n>.md`; ledgers are `ledger/E<n>.md`; outlines and their reviews are `outline/O<n>.md` and `outline/O<n>-critic.md`; paragraph artifacts are `paragraphs/P<n>/v<n>-{draft,critique,responses,revision,check,resolve}.md`; final documents, reviews, and edits are in `final/` (`D<n>.md` is the assembled document); optional blinded `X`, `Y`, judge prompt, and verdict artifacts are in `blind/`. `council.json` maps every recorded artifact to its relative path, SHA-256, and UTC recording time.
 
 ## Shared context packet
 
@@ -32,7 +36,7 @@ For each `P#`: section, purpose, tentative claims, evidence IDs/locators, uncert
 
 Keep the context versions, intended contribution, Writer draft and claim-source mapping, actual Critic review, numbered objections `P#-O#` with significance and resolution criteria, Writer response and revised text, and Critic's final check with residual uncertainty.
 
-Paragraph status: `planned`, `draft`, `under_review`, `reviewed`, `qualified`, `needs_evidence`, `deferred`. Reviewed means the process ran, not proven true. Qualified paragraphs state their limits. Missing Critic checks remain unreviewed.
+Paragraph status: `planned`, `draft`, `under_review`, `reviewed`, `qualified`, `needs_evidence`, `deferred`, `needs_recheck`. Reviewed means the process ran, not proven true. Qualified paragraphs state their limits. Missing Critic checks remain unreviewed.
 
 ## Checkpoint and delivery
 
