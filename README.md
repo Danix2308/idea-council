@@ -47,7 +47,7 @@ COUNCIL final document --file assembled-document.md
 COUNCIL next
 ```
 
-Then use `para draft`, `para critique`, `para revise`, and `para check` for each paragraph; use `para resolve` only for a capped recheck/evidence gap. Record the assembled document with `final document`; `final review`, `readiness set`, and `complete` close the run. `COUNCIL next` prints the one currently required transition. `REFUSED:` means correct the recorded process rather than bypassing it.
+Then use `para draft`, `para critique`, `para revise`, and `para check` for each paragraph; a paragraph can be reopened for as many cycles as the debate needs (no cap by default; `init --max-extra-cycles <n>` sets one, and `para resolve` closes a capped paragraph). Record the assembled document with `final document`; `final review`, `readiness set`, and `complete` close the run. `COUNCIL next` prints the one currently required transition. `REFUSED:` means correct the recorded process rather than bypassing it.
 
 For evaluation runs, the optional `baseline enable`, `baseline prompts`, `baseline record-draft`, and `baseline record-verdict` commands perform a blinded comparison with a one-pass draft. It is off by default, requires disclosure of the extra call cost, and reports when the baseline scores higher. See [baseline-check.md](skills/research-council/references/baseline-check.md).
 
