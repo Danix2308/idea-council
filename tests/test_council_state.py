@@ -103,6 +103,17 @@ class CouncilStateTests(unittest.TestCase):
         result = self.call("para", "check", "P1", "--verdict", "reopen", "--file", self.root / "check.md", code=2)
         self.assertIn("cycle cap", result.stderr)
 
+    def test_04b_default_run_has_no_cycle_cap(self):
+        self.init(); self.outline("P1: only\n"); self.ready()
+        for _ in range(5):
+            self.call("para", "draft", "P1", "--file", self.root / "draft.md", "--outline-version", "O1")
+            self.call("para", "critique", "P1", "--file", self.root / "critique.md", "--objections", "1")
+            self.call("para", "revise", "P1", "--file", self.root / "revision.md", "--responses-file", self.root / "responses.md")
+            self.call("para", "check", "P1", "--verdict", "reopen", "--file", self.root / "check.md")
+            self.assertIn("para draft P1", self.call("next").stdout)
+        result = self.call("para", "draft", "P1", "--file", self.root / "draft.md", "--outline-version", "O1")
+        self.assertIn("Recorded P1 draft cycle 6", result.stdout)
+
     def test_05_mid_drafting_outline_change_marks_dependents_and_removed(self):
         self.init(); self.outline("P1: one\nP2: two depends: P1\nP3: three\n"); self.ready()
         self.call("para", "draft", "P1", "--file", self.root / "draft.md", "--outline-version", "O1")

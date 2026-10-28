@@ -56,7 +56,7 @@ For every paragraph:
 3. Writer responds to every objection and revises. Missing evidence triggers research rather than cosmetic rewriting. Preserve supported disagreement where unresolved.
 4. Critic checks the revised text and objection dispositions before marking it reviewed. A failed/unavailable critic leaves it unreviewed.
 
-Retain versions and actual exchanges. Default to one draft/critique/revision/check cycle, with at most one additional cycle per paragraph. If a blocker remains, narrow or defer the claim, qualify it explicitly, or mark work partial. Do not loop until agreement or a favorable score. Honor the user's iteration/cost/time constraints.
+Retain versions and actual exchanges. There is no fixed limit on cycles: while the Critic still has a material objection, reopen the paragraph and run another draft/critique/revision/check cycle. Each new cycle must answer the open objections with new evidence, narrowing, or revision; never repeat an unchanged argument or manufacture disagreement to keep the debate going. The debate on a paragraph ends when the Critic marks it reviewed, or when the roles explicitly qualify or defer the claim. Honor the user's iteration/cost/time constraints; if the user sets a cap, start the run with `COUNCIL init --max-extra-cycles <n>`.
 
 If new findings change structure, pause affected drafting, revise and re-review the outline, increment its version, and flag dependent paragraphs for rechecking. Read context again after version changes and resumptions; do not apply stale responses silently.
 

@@ -227,6 +227,9 @@ def invalidate_final(state, document_required=True):
 
 
 def cycle_limit_reached(state, para):
+    # No cap unless the run was started with an explicit --max-extra-cycles.
+    if state.get("max_extra_cycles") is None:
+        return False
     return para.get("cycles", 0) - para.get("cycle_base", 0) >= 1 + state["max_extra_cycles"]
 
 
@@ -237,7 +240,7 @@ def require_open_run(state):
 
 def command_init(args):
     root = Path(args.root or Path.cwd()).resolve()
-    if args.max_extra_cycles < 0:
+    if args.max_extra_cycles is not None and args.max_extra_cycles < 0:
         raise Refusal("--max-extra-cycles cannot be negative", "COUNCIL init --brief-file <brief> --max-extra-cycles 0")
     brief = Path(args.brief_file)
     if not brief.is_file() or brief.stat().st_size == 0:
@@ -884,7 +887,7 @@ def parser():
     sub = root.add_subparsers(dest="command", required=True)
     p = sub.add_parser("init")
     p.add_argument("--brief-file", required=True); p.add_argument("--mode", choices=("separate-agents", "single-agent-approximation"), default="separate-agents")
-    p.add_argument("--max-extra-cycles", type=int, default=1); p.add_argument("--root")
+    p.add_argument("--max-extra-cycles", type=int, default=None, help="optional per-paragraph cap; unlimited by default"); p.add_argument("--root")
     p.set_defaults(func=command_init)
     for name, func in (("brief", lambda a: command_brief_or_ledger(a, "brief")), ("ledger", lambda a: command_brief_or_ledger(a, "ledger"))):
         p = sub.add_parser(name); p.add_argument("--file", required=True); add_dir(p); p.set_defaults(func=func)
