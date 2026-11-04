@@ -2,17 +2,19 @@
 
 A skill for Codex and Claude that develops research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
 
-## Research Council v0.3
+## Research Council v0.4
 
 The skill lives in [skills/research-council](skills/research-council/SKILL.md). It is an instruction-based workflow using the host's research tools and subagents, not a standalone app or background service. Both personas may use the same model. No additional provider or API key is required by the skill; normal host usage applies.
 
-1. Read the task context, existing documents, and relevant evidence.
+1. Read available context; when it or the evidence is missing, research the question using accessible sources and data.
 2. Discuss and review a complete paragraph-by-paragraph outline before body drafting.
 3. Draft each paragraph, critique its claims and sources, revise it, and check the revision.
 4. Revisit research or the outline when evidence changes the argument.
 5. Review the whole document and retain unresolved uncertainty.
 
 Before working, each role receives the brief, complete outline, relevant evidence, and current document. Outputs include a cited report, reviewed outline, source ledger, actual paragraph discussion records, and final review. Agreement is not proof of correctness.
+
+Each question also gets a new research dossier, with accessible source downloads, summaries of useful inspected passages, checked statistics and short quotations, and a map from evidence to planned paragraphs. For datasets, it records which calculations the inspected fields support, their assumptions and formulas, and whether they were actually run. Missing project history is not a reason to stop. Collection-only requests deliver the dossier without drafting an article. See [question research files](skills/research-council/references/question-research-files.md).
 
 Research checks cover conceptual definitions and operational measures, consequential assumptions, exact source versions and reading depth, claim-level evidence, quotations and paraphrases, compatible cross-source synthesis, standalone readability, and readiness of the exact final artifact. Required checks are recorded as PASS, FAIL, UNVERIFIED, or justified N/A. The reusable guidance contains no personal course records or instructor feedback.
 

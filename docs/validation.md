@@ -2,6 +2,12 @@
 
 Date: October 21, 2026.
 
+## v0.4 Question research files — November 4, 2026
+
+Added an explicit research path for missing project context or insufficient evidence. The skill now creates a provisional question brief, searches using available permitted tools, saves accessible sources with provenance, summarizes useful inspected passages, maps statistics/short quotations to evidence needs and paragraph IDs, and inventories feasible dataset calculations. One question-specific dossier brings the records together and preserves prior revisions. Research-only requests stop at evidence collection. Missing browsing, downloads, data fields, or persistence must be disclosed rather than invented.
+
+Skill format validation, relative local Markdown links, Git whitespace validation, and a rebuilt ZIP manifest/content comparison passed. The archive includes the new reference. This update was reviewed for consistency with the existing evidence, quotation, host, and readiness rules; no new live research trial was run. Automated metadata/package checks do not verify search quality, passage interpretation, statistical correctness, actual source downloading in a host, or paragraph-level research behavior.
+
 ## v0.3 Claude compatibility — November 4, 2026
 
 Added one shared host-compatibility reference for Codex, Claude Code, and Claude web/desktop/Cowork. Claude Code uses available general-purpose subagents; ordinary chat uses clearly labeled self-review when delegation is absent. Missing separate agents cannot pass a separate-agent requirement. Added nontechnical ZIP-upload instructions, a shorter portable description, and a reproducible ZIP builder. No personal course records were added.

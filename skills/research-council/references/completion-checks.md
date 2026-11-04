@@ -23,6 +23,7 @@ Use `PASS`, `FAIL`, `UNVERIFIED`, or `N/A` for each applicable check, with evide
 | Task requirements and permitted assistance | Applicable instructions and requirement mapping |
 | Foundations and outline | Definitions, consequential assumptions, current reviewed outline |
 | Source identity and reading depth | Exact versions and inspected passages/sections |
+| Question research file and source collection | Exact dossier/version; search/access log, download status, source summaries, paragraph mapping, dataset calculation feasibility and execution status where applicable |
 | Claims and statistics | Claim ledger, units, denominators, source comparisons |
 | Quotations, paraphrases, citations | Checked originals, actual locators, bibliography agreement |
 | Paragraph discussion | Actual Writer/Critic exchanges and revised-text checks |

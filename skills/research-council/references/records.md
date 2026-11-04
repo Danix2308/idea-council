@@ -2,6 +2,8 @@
 
 Use Markdown or structured data; these contracts do not require a database or fixed filenames. Preserve stable IDs and version references.
 
+Maintain a new question-specific research file following [question research files](question-research-files.md). It may contain the brief and ledgers below, plus the search log, download inventory, source/passage summaries, statistics and quotation entries, dataset calculation inventory, and evidence-to-paragraph map. Link preserved source files and prior dossier revisions. Proposed calculations are not completed results.
+
 ## Shared context packet
 
 - Brief/version: purpose, audience, scope, research questions, definitions, constraints, assumptions, decisions, evidence boundary.
