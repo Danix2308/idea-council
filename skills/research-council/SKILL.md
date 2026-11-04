@@ -1,6 +1,6 @@
 ---
 name: research-council
-description: Research and write documents through context gathering, a reviewed paragraph-by-paragraph outline, and separate Writer and Critic agents that discuss and revise every paragraph. Use for research reports, essays, and evidence-based arguments requiring deliberative drafting.
+description: Research and write evidence-based reports and essays through context gathering, a reviewed paragraph outline, and Writer-Critic drafting, source checks, and revision. Works in Codex and Claude.
 ---
 
 # Research Council
@@ -8,6 +8,8 @@ description: Research and write documents through context gathering, a reviewed 
 Develop research through evidence-based discussion. Understand the context and review the complete paragraph plan before writing body prose. A broad topic is sufficient; do not force a binary question or assume a preferred conclusion.
 
 ## Roles and records
+
+At setup, read [host compatibility](references/host-compatibility.md) for the current environment. Report the host and actual execution mode before drafting. A skill installation does not itself provide separate agents, browsing, or source access. Use the same research checks in every host; tool availability changes execution and the reported limits, not the evidence standard.
 
 Use the host's delegation mechanism for a Writer and a Critic in separate contexts, coordinated by the primary agent. Both may use the same model; use configured models unless the user requests otherwise. This skill authorizes delegation for this research task, not unrelated work or external messages. Read [roles.md](references/roles.md) before delegating.
 

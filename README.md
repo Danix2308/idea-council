@@ -1,8 +1,8 @@
 # Idea Council
 
-A Codex skill for developing research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
+A skill for Codex and Claude that develops research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
 
-## Research Council v0.2
+## Research Council v0.3
 
 The skill lives in [skills/research-council](skills/research-council/SKILL.md). It is an instruction-based workflow using the host's research tools and subagents, not a standalone app or background service. Both personas may use the same model. No additional provider or API key is required by the skill; normal host usage applies.
 
@@ -18,7 +18,15 @@ Research checks cover conceptual definitions and operational measures, consequen
 
 ## Install and use
 
-Copy the entire `skills/research-council` folder into your Codex skill directory (normally `~/.codex/skills/`) or your project's `.agents/skills/` directory. Preserve its `references/` and `agents/` folders. Start a new session if the skill is not discovered immediately.
+For a nontechnical Claude setup, follow [the step-by-step Claude guide](docs/claude-setup.md). The same skill folder supports all hosts; there is no separate Claude fork to keep synchronized.
+
+| Host | Installation | Activation |
+|---|---|---|
+| Codex | Copy `skills/research-council` into the project's `.agents/skills/` or your personal `~/.agents/skills/` | Ask to use `$research-council` |
+| Claude web / desktop / Cowork | Upload the packaged ZIP in Customize > Skills and enable it | Ask to use the Research Council skill |
+| Claude Code, local sessions | Copy `skills/research-council` into `.claude/skills/` in the project or `~/.claude/skills/` | `/research-council` followed by the task |
+
+Preserve the whole folder, including `references/` and `agents/`. The OpenAI metadata is used by Codex; it does not create Claude agents. Restart the client if a local skill is not discovered. Claude Code local installation does not by itself install the skill in Claude web or Cowork; use the account upload for those surfaces.
 
 Example:
 
@@ -26,7 +34,13 @@ Example:
 Use $research-council to research [topic] for [audience and purpose]. Read the attached material first. Review an outline specifying what each paragraph contributes before writing. Develop every paragraph through Writer and Critic discussion. Include traceable citations and unresolved evidence gaps.
 ```
 
-Separate agents require a host delegation mechanism. Without one, the skill discloses a single-agent approximation. This package does not install a runtime, configure model access, or change account settings.
+In Claude chat, replace `Use $research-council` with `Use the Research Council skill`. In Claude Code, begin with `/research-council`.
+
+Separate agents require a host delegation mechanism. Without one, the skill discloses a single-agent approximation and labels the Critic stages as self-review. It cannot fulfill a separate-agent requirement in that mode. This package does not install a runtime, configure model access, or change account settings.
+
+### Build an upload ZIP
+
+From a checkout with Python 3.9 or later, run `python scripts/package_skill.py`. It writes `dist/research-council.zip` with one top-level `research-council/` folder and all supporting files. This archive can be attached to an email, so recipients do not need GitHub access. See [validation](docs/validation.md) for what has and has not been tested.
 
 ## Design and validation
 

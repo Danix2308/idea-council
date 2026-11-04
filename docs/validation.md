@@ -2,6 +2,22 @@
 
 Date: October 21, 2026.
 
+## v0.3 Claude compatibility — November 4, 2026
+
+Added one shared host-compatibility reference for Codex, Claude Code, and Claude web/desktop/Cowork. Claude Code uses available general-purpose subagents; ordinary chat uses clearly labeled self-review when delegation is absent. Missing separate agents cannot pass a separate-agent requirement. Added nontechnical ZIP-upload instructions, a shorter portable description, and a reproducible ZIP builder. No personal course records were added.
+
+Checks performed on the v0.3 files:
+
+- Skill-creator format validation passed; the description also fits the 200-character limit stated in Anthropic's custom-skill guidance.
+- All local Markdown reference targets resolved.
+- The ZIP's eight-file manifest and every decompressed file matched the source skill folder. The archive contains only one top-level research-council folder, including SKILL.md and its supporting files.
+- Repeated builds produced identical bytes. The builder rejected output inside its source folder before writing an archive there.
+- Git whitespace validation passed.
+
+A live Claude Code trial was attempted in an isolated temporary project with the installed skill, a short hypothetical pilot note, and only the Read tool available. The trial requested a two-paragraph summary plus review records, with no browsing or file writes. It ended in a provider safeguard/API error reporting reasoning_extraction, without a usable final result. This is an inconclusive runtime test, not a behavioral pass or proof that the skill caused the refusal. No separate-agent Claude trial completed. Raw run metadata remains outside the repository.
+
+Claude web/desktop ZIP upload and Cowork execution were not tested through the UI. The setup instructions follow the official documentation checked November 4: [Claude skill setup](https://support.claude.com/en/articles/12512180-use-skills-in-claude), [custom-skill packaging](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills), [Claude Code skills](https://code.claude.com/docs/en/skills), and [subagents](https://code.claude.com/docs/en/sub-agents). Compatibility guidance and package validity do not establish end-to-end operation or improved writing quality on any Claude surface.
+
 ## v0.2 research-quality additions
 
 Added general-purpose foundations, source/citation audit, and completion-check references; linked them from the entrypoint and relevant roles; expanded source, claim, assumption, and readiness record contracts. No course documents, private feedback, grades, or personal research records were copied. No ENC1102 files were modified.

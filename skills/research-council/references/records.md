@@ -8,7 +8,7 @@ Use Markdown or structured data; these contracts do not require a database or fi
 - Complete outline/version and structural review status.
 - Latest full document/version, with paragraph IDs and statuses. Disclose any necessary context-map substitute and provide access to originals.
 - Relevant sources/locators, counterevidence, current paragraph ID, open objections, affected dependencies.
-- Actual runtime roles/model identity when known, never inferred from persona names.
+- Host, execution mode, available delegation/research/file tools, and actual runtime roles/model identity when known, never inferred from persona names. In single-agent mode, label staged critiques and revision checks as self-review.
 
 Each response identifies versions reviewed. Reconcile stale responses before applying them.
 
