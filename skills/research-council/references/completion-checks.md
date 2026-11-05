@@ -26,8 +26,11 @@ Use `PASS`, `FAIL`, `UNVERIFIED`, or `N/A` for each applicable check, with evide
 | Claims and statistics | Claim ledger, units, denominators, source comparisons |
 | Quotations, paraphrases, citations | Checked originals, actual locators, bibliography agreement |
 | Paragraph discussion | Actual Writer/Critic exchanges and revised-text checks |
+| State-tool enforcement | council.json and COUNCIL next output from the actual run, or UNVERIFIED when the tool was unavailable |
 | Analysis and standalone explanation | Whole-document review, alternatives, disclosed limits |
 | Relevant feedback | Comment-to-revision mapping, or justified N/A |
 | Final artifact | Exact filename/version; inspected export when applicable |
 
 PASS requires completed supporting evidence. Do not call the deliverable fully verified or ready while an applicable required check is FAIL or UNVERIFIED. Return partial work with specific remaining checks instead. A completed research report may honestly conclude that a question remains unanswered; disclosed scientific uncertainty differs from unfinished required verification. These checks do not guarantee truth, a grade, or permission to submit, publish, or transmit anything.
+
+In `single-agent approximation`, identify paragraph and final checks as self-review. Such work can satisfy a task that permits that mode, but it cannot receive PASS for a requirement to use separate agents. An unavailable required reviewer remains UNVERIFIED; do not relabel self-review as independent clearance.
