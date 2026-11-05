@@ -1,6 +1,6 @@
 ---
 name: research-council
-description: Research and write documents through context gathering, a reviewed paragraph-by-paragraph outline, and separate Writer and Critic agents that discuss and revise every paragraph. Use for research reports, essays, and evidence-based arguments requiring deliberative drafting.
+description: Research and write evidence-based reports and essays through context gathering, a reviewed paragraph outline, and Writer-Critic drafting, source checks, and revision. Works in Codex and Claude.
 ---
 
 # Research Council
@@ -9,11 +9,17 @@ Develop research through evidence-based discussion. Understand the context and r
 
 ## State tool
 
-Set `COUNCIL` to `python <this skill's folder>/scripts/council_state.py` (`${CLAUDE_SKILL_DIR}/scripts/council_state.py` on Claude Code; use `python` on Windows when `python3` is unavailable). The coordinator must record every outline, review, draft, critique, revision, check, and final review through this tool, and drive the run with `COUNCIL next`. A `REFUSED:` result means fix the process; never work around the tool. It enforces the recorded workflow but does not verify research truth.
+When a shell or code execution is available, locate the script at `${CLAUDE_SKILL_DIR}/scripts/council_state.py` on Claude Code. On Codex and other hosts, use `scripts/council_state.py` inside the folder that contains this SKILL.md. Set `COUNCIL` to `python3 "<resolved script path>"`; use `python` when `python3` is unavailable, including on Windows.
 
-At the start of a run, tell the user they can watch the debate live with `python <this skill's folder>/scripts/council_live.py serve --open` (browser) or `... watch` (terminal). When dispatching a role, optionally post `council_live.py say --role writer|critic --working --text "<task>"` so the viewer shows who is working; notes are progress markers, not records.
+The coordinator must record the brief, ledger, every outline version, review, paragraph cycle (draft, critique, revision, and check), final document, final review, and readiness through this tool, and drive the run with `COUNCIL next`. A `REFUSED:` result means fix the process; never work around the tool. It enforces the recorded workflow but does not verify research truth.
+
+If no shell or code execution is available, announce `state tool unavailable` before drafting. Keep the same artifacts (brief, ledger, outline versions, reviews, paragraph cycles, final document, final review, and readiness) as files, or as labeled chat sections when files are unavailable, and follow the same order by hand. The `COUNCIL` commands below describe the transitions to follow manually in that mode. Mark the readiness check "State-tool enforcement" as UNVERIFIED. Never print or claim `COUNCIL` output that was not actually run.
+
+The live viewer needs a local folder and a local browser or terminal, so offer it only in local Codex or Claude Code sessions, never in Claude web, desktop chat, or Cowork. In those local sessions, at the start of a run, tell the user they can watch the debate live with `python <this skill's folder>/scripts/council_live.py serve --open` (browser) or `... watch` (terminal). When dispatching a role, optionally post `council_live.py say --role writer|critic --working --text "<task>"` so the viewer shows who is working; notes are progress markers, not records.
 
 ## Roles and records
+
+At setup, read [host compatibility](references/host-compatibility.md) for the current environment. Report the host and actual execution mode before drafting. A skill installation does not itself provide separate agents, browsing, or source access. Use the same research checks in every host; tool availability changes execution and the reported limits, not the evidence standard.
 
 Use the host's delegation mechanism for a Writer and a Critic in separate contexts, coordinated by the primary agent. Both may use the same model; use configured models unless the user requests otherwise. This skill authorizes delegation for this research task, not unrelated work or external messages. Read [roles.md](references/roles.md) before delegating.
 
@@ -31,7 +37,7 @@ Research with available authorized tools. Prefer primary sources and inspect act
 
 Create a versioned brief and evidence ledger. Both roles read this context before planning. Do not draft body paragraphs yet.
 
-Record the context with `COUNCIL init --brief-file <brief>` and `COUNCIL ledger --file <ledger>`.
+Record the context with `COUNCIL init --brief-file <brief>` and `COUNCIL ledger --file <ledger>`. When separate agents are unavailable (for example, Claude chat without delegation), add `--mode single-agent-approximation` to `init` so the run record matches the actual execution mode.
 
 Record consequential assumptions and distinguish conceptual definitions from operational measures. Label actual source-reading depth, preserve exact source versions, and check the body-level evidence required by each claim. The paragraph plan must not rely on uninspected details or unexplained proxies.
 

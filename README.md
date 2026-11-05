@@ -1,8 +1,8 @@
 # Idea Council
 
-A skill for Codex and Claude Code for developing research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
+A skill for Codex and Claude that develops research through context gathering, a reviewed paragraph outline, and Writer–Critic discussion of every paragraph.
 
-## Research Council v0.3
+## Research Council v0.3.1
 
 The skill lives in [skills/research-council](skills/research-council/SKILL.md). It uses the host's research tools and subagents, plus a small local Python state tool that enforces the workflow gates. Both personas may use the same model. No additional provider or API key is required; Python 3.8+ is required for the state tool.
 
@@ -18,13 +18,16 @@ Research checks cover conceptual definitions and operational measures, consequen
 
 ## Install and use
 
-### Install on Codex
+For a nontechnical Claude setup, follow [the step-by-step Claude guide](docs/claude-setup.md). The same skill folder supports all hosts; there is no separate Claude fork to keep synchronized.
 
-Copy the entire `skills/research-council` folder into your Codex skill directory (normally `~/.codex/skills/`) or your project's `.agents/skills/` directory. Preserve its `references/`, `agents/`, and `scripts/` folders. Start a new session if the skill is not discovered immediately.
+| Host | Installation | Activation |
+|---|---|---|
+| Codex | Copy `skills/research-council` into the project's `.agents/skills/` or your personal `~/.agents/skills/` | Ask to use `$research-council` |
+| Claude web / desktop / Cowork | Upload the packaged ZIP in Customize > Skills and enable it | Ask to use the Research Council skill |
+| Claude Code, local sessions | Copy `skills/research-council` into `.claude/skills/` in the project or `~/.claude/skills/` | `/research-council` followed by the task |
+| Claude Code, plugin | Run `/plugin marketplace add Danix2308/idea-council`, then `/plugin install idea-council@idea-council` | `/idea-council:research-council` followed by the task |
 
-### Install on Claude Code
-
-Copy the `skills/research-council` folder, including its `references/`, `agents/`, and `scripts/` folders, to `~/.claude/skills/` or the project's `.claude/skills/`. It then appears as `/research-council`. Or install the marketplace with `/plugin marketplace add Danix2308/idea-council`, then run `/plugin install idea-council@idea-council`; it appears as `/idea-council:research-council`.
+Preserve the whole folder, including `references/`, `agents/` and `scripts/`. The OpenAI metadata is used by Codex; it does not create Claude agents. Restart the client if a local skill is not discovered. Claude Code local installation does not by itself install the skill in Claude web or Cowork; use the account upload for those surfaces.
 
 Example:
 
@@ -32,11 +35,19 @@ Example:
 Use $research-council to research [topic] for [audience and purpose]. Read the attached material first. Review an outline specifying what each paragraph contributes before writing. Develop every paragraph through Writer and Critic discussion. Include traceable citations and unresolved evidence gaps.
 ```
 
-Separate agents require a host delegation mechanism. Without one, the skill discloses a single-agent approximation. This package does not install a runtime, configure model access, or change account settings.
+In Claude chat, replace `Use $research-council` with `Use the Research Council skill`. In Claude Code, begin with `/research-council`.
+
+Separate agents require a host delegation mechanism. Without one, the skill discloses a single-agent approximation and labels the Critic stages as self-review. It cannot fulfill a separate-agent requirement in that mode. This package does not install a runtime, configure model access, or change account settings.
+
+### Build an upload ZIP
+
+From a checkout with Python 3.9 or later, run `python scripts/package_skill.py`. It writes `dist/research-council.zip` with one top-level `research-council/` folder and all supporting files. This archive can be attached to an email, so recipients do not need GitHub access. See [validation](docs/validation.md) for what has and has not been tested.
 
 ## State tool
 
 From a checkout, set `COUNCIL` to `python skills/research-council/scripts/council_state.py`; from an installed skill, set it to `python <research-council skill folder>/scripts/council_state.py`. The tool stores each run at `.council/<run-id>/`, copies every recorded artifact, and records only relative paths, SHA-256 hashes, and UTC timestamps in `council.json`.
+
+Claude Code and Codex run the tool locally. In Claude web / desktop / Cowork it runs only when code execution ("Create and edit files") is on. There, `.council/` lives in that chat's sandbox, so the coordinator offers the run folder as a download at the end; upload it again to resume. Without code execution, the skill announces `state tool unavailable` and keeps the same records as files or labeled chat sections.
 
 ```text
 COUNCIL init --brief-file brief.md
@@ -53,7 +64,7 @@ For evaluation runs, the optional `baseline enable`, `baseline prompts`, `baseli
 
 ## Watch the debate live
 
-`scripts/council_live.py` is a read-only viewer for a run. Start it in the project folder before or during a run; it waits for `.council/` to appear and follows new runs.
+`scripts/council_live.py` is a read-only viewer for a run. Start it in the project folder before or during a run; it waits for `.council/` to appear and follows new runs. It works with local Codex and Claude Code sessions only: a Claude web, desktop chat, or Cowork run lives in that chat's sandbox, so read its records there or in the downloaded `.council` folder (`watch --once --dir <folder containing .council>` prints a downloaded run).
 
 ```text
 python skills/research-council/scripts/council_live.py serve --open     # browser tab at http://127.0.0.1:8765/
