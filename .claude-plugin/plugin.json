@@ -1,0 +1,19 @@
+{
+  "name": "idea-council",
+  "version": "0.4.0",
+  "description": "Evidence-based research drafting with question research dossiers and Writer-Critic review, for Claude Code, Claude chat, and Codex.",
+  "author": {
+    "name": "Daniel (Danix2308)",
+    "url": "https://github.com/Danix2308"
+  },
+  "homepage": "https://github.com/Danix2308/idea-council",
+  "repository": "https://github.com/Danix2308/idea-council",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "writing",
+    "review",
+    "evidence",
+    "workflow"
+  ]
+}

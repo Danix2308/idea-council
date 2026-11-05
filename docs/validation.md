@@ -2,6 +2,12 @@
 
 Date: October 21, 2026.
 
+## v0.4.1 Claude Code plugin packaging — November 5, 2026
+
+Added `.claude-plugin/plugin.json` and `marketplace.json` so Claude Code can install the skill with `/plugin marketplace add Danix2308/idea-council` and `/plugin install idea-council@idea-council` (invoked as `/idea-council:research-council`). Because the marketplace is read from the default branch, this also makes the install command documented on other branches resolve. Added the MIT license already used on the `feat/arena-borrowed-upgrades` branch.
+
+`claude plugin validate .` passed (one directory warning: no listing icon). Both manifests parse as JSON. `python scripts/package_skill.py` built a 9-file ZIP with one top-level `research-council/` folder. Git whitespace validation passed. An actual `/plugin install` from GitHub was not run, because it requires the change to be pushed.
+
 ## v0.4 Question research files — November 4, 2026
 
 Added an explicit research path for missing project context or insufficient evidence. The skill now creates a provisional question brief, searches using available permitted tools, saves accessible sources with provenance, summarizes useful inspected passages, maps statistics/short quotations to evidence needs and paragraph IDs, and inventories feasible dataset calculations. One question-specific dossier brings the records together and preserves prior revisions. Research-only requests stop at evidence collection. Missing browsing, downloads, data fields, or persistence must be disclosed rather than invented.

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "idea-council",
+  "description": "Research Council skill: evidence-based research and essay drafting with Writer-Critic review.",
+  "owner": {
+    "name": "Daniel (Danix2308)",
+    "url": "https://github.com/Danix2308"
+  },
+  "plugins": [
+    {
+      "name": "idea-council",
+      "source": "./",
+      "category": "productivity",
+      "description": "Evidence-based research drafting with question research dossiers and Writer-Critic review, for Claude Code, Claude chat, and Codex.",
+      "version": "0.4.0"
+    }
+  ]
+}

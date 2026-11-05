@@ -41,6 +41,15 @@ Copy the complete `research-council` folder into your project's `.claude/skills/
 /research-council Research [topic] for [audience], using the sources in this folder. Use separate Writer and Critic agents if available, retain actual review records, and disclose any unavailable capability.
 ```
 
+Or install it as a plugin, which keeps it updated from GitHub (requires access to the repository):
+
+```text
+/plugin marketplace add Danix2308/idea-council
+/plugin install idea-council@idea-council
+```
+
+The plugin version is invoked as `/idea-council:research-council`.
+
 The coordinator uses available general-purpose subagents; no custom agent configuration is required. If delegation is unavailable or disallowed, it reports that limitation. Local folders and account-uploaded skills have different scopes; for Cowork, use the account upload above. See [Claude Code skills](https://code.claude.com/docs/en/skills) and [subagents](https://code.claude.com/docs/en/sub-agents).
 
 ## What feedback helps

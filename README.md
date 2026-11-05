@@ -27,6 +27,7 @@ For a nontechnical Claude setup, follow [the step-by-step Claude guide](docs/cla
 | Codex | Copy `skills/research-council` into the project's `.agents/skills/` or your personal `~/.agents/skills/` | Ask to use `$research-council` |
 | Claude web / desktop / Cowork | Upload the packaged ZIP in Customize > Skills and enable it | Ask to use the Research Council skill |
 | Claude Code, local sessions | Copy `skills/research-council` into `.claude/skills/` in the project or `~/.claude/skills/` | `/research-council` followed by the task |
+| Claude Code, plugin | `/plugin marketplace add Danix2308/idea-council`, then `/plugin install idea-council@idea-council` | `/idea-council:research-council` followed by the task |
 
 Preserve the whole folder, including `references/` and `agents/`. The OpenAI metadata is used by Codex; it does not create Claude agents. Restart the client if a local skill is not discovered. Claude Code local installation does not by itself install the skill in Claude web or Cowork; use the account upload for those surfaces.
 
